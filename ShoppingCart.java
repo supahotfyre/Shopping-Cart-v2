@@ -4,17 +4,17 @@ public class ShoppingCart {
 
 	private String customerName;
 	private String currentDate;
-	ArrayList<Item> cartItems = null;
+	ArrayList<ItemToPurchase> cartItems = null;
 	
 	public ShoppingCart() {
-		this.cartItems = new ArrayList<Item>();
+		this.cartItems = new ArrayList<ItemToPurchase>();
 		currentDate = "December 1, 2021";
 		customerName = "none";
 				
 	}
 	
 	public ShoppingCart(String name, String date) {
-		this.cartItems = new ArrayList<Item>();
+		this.cartItems = new ArrayList<ItemToPurchase>();
 		this.currentDate = date;
 		this.customerName = name;
 	}
@@ -35,15 +35,15 @@ public class ShoppingCart {
 		this.currentDate = currentDate;
 	}
 	
-	public Void addItem(Item i) {
+	public void addItem(ItemToPurchase i) {
 		cartItems.add(i);
 	}
 	
 	public void removeItem(String name) {
 		boolean found = false;
 		
-		for (Item i: cartItems) {
-			if (i.getName().equalsIsIgnoreCase(name)) {
+		for (ItemToPurchase i : cartItems) {
+			if (i.getName().equalsIgnoreCase(name)) {
 				cartItems.remove(i);
 				found = true;
 				break;
@@ -58,7 +58,7 @@ public class ShoppingCart {
 	public int getNumItemsInCart() {
 		int sum = 0;
 		
-		for (Item i : cartItems) {
+		for (ItemToPurchase i : cartItems) {
 			sum = sum + i.getItemQuantity();
 		}
 		return sum;
@@ -67,7 +67,7 @@ public class ShoppingCart {
 	public double getCostOfCart() {
 		double sum = 0;
 		
-		for (Item i : cartItems) {
+		for (ItemToPurchase i : cartItems) {
 			sum = sum + i.getPrice();
 		}
 		return sum;
@@ -81,7 +81,7 @@ public class ShoppingCart {
 			System.out.println("Number of Items: " + getNumItemsInCart());
 			System.out.println();
 			
-			for (Item i : cartItems) {
+			for (ItemToPurchase i : cartItems) {
 				tot += i.getPrice() * i.getItemQuantity();
 				i.printItemCost();
 			}
@@ -101,7 +101,7 @@ public class ShoppingCart {
 		System.out.println();
 		System.out.println("Item Descriptions");
 		
-		for (Item i : cartItems) {
+		for (ItemToPurchase i : cartItems) {
 			i.printItemDescription();
 		}
 	}
