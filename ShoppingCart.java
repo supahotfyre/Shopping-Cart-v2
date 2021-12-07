@@ -82,7 +82,7 @@ public class ShoppingCart {
 			System.out.println();
 			
 			for (ItemToPurchase i : cartItems) {
-				tot += i.getPrice() * i.getItemQuantity();
+				tot += i.getPrice() * i.getItemQuantity(i);
 				i.printItemCost();
 			}
 			
@@ -92,7 +92,6 @@ public class ShoppingCart {
 		else {
 			System.out.println("SHOPPING CART IS EMPTY");
 		}
-		
 	}
 	
 	public void printDescriptions() {

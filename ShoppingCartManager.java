@@ -5,11 +5,11 @@ public class ShoppingCartManager {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Scanner scan = new Scanner(System.in);
+		Scanner scnr = new Scanner(System.in);
 		System.out.println("Enter Customer's Name: ");
-		String customerName = scan.nextLine();
+		String customerName = scnr.nextLine();
 		System.out.println("Enter Today's Date: ");
-		String currentDate = scan.nextLine();
+		String currentDate = scnr.nextLine();
 		
 		ShoppingCart s = new ShoppingCart(customerName, currentDate);
 		
@@ -22,38 +22,38 @@ public class ShoppingCartManager {
 	public static void printMenu(ShoppingCart s) {
 		while(true) {
 			System.out.println("MENU\na - Add item to cart\nd - Remove item from cart\nc - Change item quantity\ni - Output items' descriptions\no - Output shopping cart\nq - Quit\n\nChoose an option: ");
-			Scanner scan = new Scanner(System.in);
-			char ch = scan.next().charAt(0);
-			scan.nextLine();
+			Scanner scnr = new Scanner(System.in);
+			char ch = scnr.next().charAt(0);
+			scnr.nextLine();
 			
 			if (ch == 'a' || ch == 'A') {
 				System.out.println("ADD ITEM TO CART");
 				System.out.println("Enter Item Name: ");
-				String name = scan.nextLine();
+				String name = scnr.nextLine();
 				System.out.println("Enter Item Description: ");
-				String itemDescritpion = scan.nextLine();
+				String itemDescritpion = scnr.nextLine();
 				System.out.println("Enter Item Price: ");
-				int itemPrice = scan.nextInt();
+				int itemPrice = scnr.nextInt();
 				System.out.println("Enter Item Quantity: ");
-				int quantity = scan.nextInt();
-				scan.nextLine();
+				int quantity = scnr.nextInt();
+				scnr.nextLine();
 				ItemToPurchase item = new ItemToPurchase(name, itemDescritpion,itemPrice, quantity);
 				s.addItem(item);
 			}
 			
 			else if (ch == 'd' || ch == 'D') {
 				System.out.println("REMOVE ITEM FROM CART");
-				System.out.println("Enter name of the item to remove: ")
-				String name = scan.nextLine();
+				System.out.println("Enter name of the item to remove: ");
+				String name = scnr.nextLine();
 				s.removeItem(name);
 			}
 			
 			else if (ch == 'c' || ch == 'C') {
 				System.out.println("CHANGE ITEM QUANTITY");
 				System.out.println("Enter the item name: ");
-				String name = scan.nextLine();
+				String name = scnr.nextLine();
 				System.out.println("Enter the new quantity: ");
-				int quantity = scan.nextInt();
+				int quantity = scnr.nextInt();
 				ItemToPurchase item = new ItemToPurchase();
 				item.setName(name);
 				item.setItemQuantity(quantity);
