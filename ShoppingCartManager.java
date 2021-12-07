@@ -33,11 +33,11 @@ public class ShoppingCartManager {
 				System.out.println("Enter Item Description: ");
 				String itemDescritpion = scnr.nextLine();
 				System.out.println("Enter Item Price: ");
-				int itemPrice = scnr.nextInt();
+				double itemPrice = scnr.nextDouble();
 				System.out.println("Enter Item Quantity: ");
 				int quantity = scnr.nextInt();
 				scnr.nextLine();
-				ItemToPurchase item = new ItemToPurchase(name, itemDescritpion,itemPrice, quantity);
+				Item item = new Item(name, itemDescritpion, itemPrice, quantity);
 				s.addItem(item);
 			}
 			
@@ -54,7 +54,7 @@ public class ShoppingCartManager {
 				String name = scnr.nextLine();
 				System.out.println("Enter the new quantity: ");
 				int quantity = scnr.nextInt();
-				ItemToPurchase item = new ItemToPurchase();
+				Item item = new Item();
 				item.setName(name);
 				item.setItemQuantity(quantity);
 				s.modifyItem(item);
