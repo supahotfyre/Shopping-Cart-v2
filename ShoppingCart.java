@@ -4,7 +4,7 @@ public class ShoppingCart {
 
 	private String customerName;
 	private String currentDate;
-	ArrayList<Item> cartItems = null;
+	private ArrayList<Item> cartItems = new ArrayList<Item>();
 	
 	public ShoppingCart() {
 		this.cartItems = new ArrayList<Item>();
@@ -27,11 +27,11 @@ public class ShoppingCart {
 		this.customerName = customerName;
 	}
 	
-	public String getCurrentDate() {
+	public String getDate() {
 		return currentDate;
 	}
 	
-	public void setCurrentDate(String currentDate) {
+	public void setDate(String currentDate) {
 		this.currentDate = currentDate;
 	}
 	
@@ -42,7 +42,7 @@ public class ShoppingCart {
 	public void removeItem(String name) {
 		boolean found = false;
 		
-		for (Item i : cartItems) {
+		for (Item i: cartItems) {
 			if (i.getName().equalsIgnoreCase(name)) {
 				cartItems.remove(i);
 				found = true;
@@ -58,7 +58,7 @@ public class ShoppingCart {
 	public void modifyItem(Item item) {
 		boolean found = false;
 		  
-		for (Item i : cartItems) {
+		for (Item i: cartItems) {
 			if (i.getName().equalsIgnoreCase(item.getName())) {
 				i.setItemQuantity(item.getItemQuantity());
 		  
@@ -104,21 +104,11 @@ public class ShoppingCart {
 			}
 			
 			System.out.println("\nTotal: $" + tot);
+			System.out.println();
 		}
 		
 		else {
 			System.out.println("SHOPPING CART IS EMPTY");
-		}
-	}
-	
-	public void printDescriptions() {
-		System.out.println(customerName = "'s Shopping Cart - " + currentDate);
-		System.out.println("Number of Items: " + getNumItemsInCart());
-		System.out.println();
-		System.out.println("Item Descriptions");
-		
-		for (Item i : cartItems) {
-			i.printItemDescription();
 		}
 	}
 	

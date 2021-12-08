@@ -1,39 +1,24 @@
 
 public class Item {
 	
-	private String itemDescription;
 	private String itemName;
 	private double itemPrice;
 	private int itemQuantity;
 	
 	public Item() {
-		itemDescription = "none";
 		itemQuantity = 0;
-		itemPrice = 0;
-		itemName = "";
+		itemPrice = 0.0;
+		itemName = "none";
 	}
 	
-	public Item(String name, String description, double price, int itemQuantity) {
-		this.itemDescription = description;
+	public Item(String name, double price, int itemQuantity) {
 		this.itemName = name;
 		this.itemPrice = price;
 		this.itemQuantity = itemQuantity;
 	}
 	
-	public String getDescription() {
-		return itemDescription;
-	}
-	
-	public void setDescription(String itemDescription) {
-		this.itemDescription = itemDescription;
-	}
-	
 	public void printItemCost() {
-		System.out.println(itemName + " " + itemQuantity + " @ " + itemPrice + " = $" + (itemQuantity * itemPrice));
-	}
-	
-	public void printItemDescription() {
-		System.out.println(itemName + " " + itemDescription);
+		System.out.println(itemName + " " + itemQuantity + " @ $" + itemPrice + " = $" + (itemQuantity * itemPrice));
 	}
 	
 	public String getName() {
